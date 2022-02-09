@@ -1,16 +1,28 @@
 'use strict';
 
-let incr = 10, 
-    decr = 10;
+let pay = +prompt("Ваш бюджет на месяц?");
 
-console.log(incr++);
-console.log(decr--);
+let timeDate = prompt("Введите дату", "YYYY-MM-DD");
 
-console.log(5 % 2);
+let firstQuestion = prompt("Введите обязятельную статью расходов");
+let secondQuestion = +prompt("Во сколько это обойдется?");
 
-console.log("2" === 2);
+let firstQuestion1 = prompt("Введите обязятельную статью расходов");
+let secondQuestion1 = +prompt("Во сколько это обойдется?");
 
-let isChecked = false,
-    isClose = false;
+let expenses = {
+    firstQuestion: secondQuestion,
+    firstQuestion1: secondQuestion1
+};
 
-console.log(isChecked || !isClose);
+let appData = {
+    timeDate,
+    expenses,
+    optionalExpenses: 0,
+    imcome: 0,
+    savings: false
+};
+
+let budjet = pay - (secondQuestion + secondQuestion1);
+
+alert(`Ваш бюджет на один день: ${budjet / 30}`);
