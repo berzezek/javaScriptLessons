@@ -1,28 +1,34 @@
 'use strict';
 
-let pay = +prompt("Ваш бюджет на месяц?");
+let pay = +prompt("Ваш бюджет на месяц?"),
 
-let timeDate = prompt("Введите дату", "YYYY-MM-DD");
-
-let firstQuestion = prompt("Введите обязятельную статью расходов");
-let secondQuestion = +prompt("Во сколько это обойдется?");
-
-let firstQuestion1 = prompt("Введите обязятельную статью расходов");
-let secondQuestion1 = +prompt("Во сколько это обойдется?");
-
-let expenses = {
-    firstQuestion: secondQuestion,
-    firstQuestion1: secondQuestion1
-};
+    timeDate = prompt("Введите дату", "YYYY-MM-DD");
 
 let appData = {
+    pay,
+    budjet: 0,
     timeDate,
-    expenses,
-    optionalExpenses: 0,
-    imcome: 0,
+    expenses: {},
+    optionalExpenses: {},
+    imcome: [],
     savings: false
 };
 
-let budjet = pay - (secondQuestion + secondQuestion1);
+for (let i = 0; i < 2; i++) {
+    let firstQuestion = prompt("Введите обязятельную статью расходов"),
+        secondQuestion = +prompt("Во сколько это обойдется?");
 
-alert(`Ваш бюджет на один день: ${budjet / 30}`);
+    if ( (firstQuestion !== null && secondQuestion !== null) && 
+        (firstQuestion !== '' && secondQuestion !== '') && 
+        (firstQuestion.length < 50 && secondQuestion < 10) ) {
+        appData.expenses[firstQuestion] = secondQuestion;
+    } else {
+
+    }
+
+}
+
+appData.budjet = appData.pay;
+console.log(appData.expenses);
+
+alert(`Ваш бюджет на один день: ${appData.budjet / 30}`);
